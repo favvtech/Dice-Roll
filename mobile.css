@@ -1,0 +1,256 @@
+/* ===== MOBILE-SPECIFIC CSS - HIGHEST PRIORITY ===== */
+
+/* Force mobile layout for screens 768px and below */
+@media screen and (max-width: 768px) {
+  
+  /* CRITICAL: Fix game controls container */
+  body .main-game .game-controls {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    background: white !important;
+    border-top: 2px solid #667eea !important;
+    padding: 8px 4px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    z-index: 9999 !important;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1) !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Force all buttons to be visible and properly sized */
+  body .main-game .game-controls .btn {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-width: 45px !important;
+    max-width: 75px !important;
+    height: 36px !important;
+    padding: 6px 4px !important;
+    font-size: 11px !important;
+    margin: 0 1px !important;
+    flex: 1 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    border-radius: 8px !important;
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    color: white !important;
+    border: none !important;
+    cursor: pointer !important;
+  }
+
+  /* Specific button fixes - ensure all 5 buttons are visible */
+  body .main-game .game-controls .btn--home,
+  body .main-game .game-controls .btn--new,
+  body .main-game .game-controls .btn--roll,
+  body .main-game .game-controls .btn--hold,
+  body .main-game .game-controls .btn--rules {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 10000 !important;
+  }
+
+  /* Fix game area to make room for fixed controls */
+  body .main-game .game-area {
+    padding: 8px 4px !important;
+    margin-bottom: 52px !important; /* Make room for fixed controls */
+    position: relative !important;
+  }
+
+  /* Fix player layout */
+  body .main-game .game-area .player {
+    flex: 0 0 calc(50% - 4px) !important;
+    margin: 0 2px !important;
+    padding: 6px !important;
+    position: relative !important;
+    min-height: 180px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 12px !important;
+  }
+
+  /* Fix win counter positioning - prevent overlap */
+  body .main-game .game-area .player .win-counter {
+    position: absolute !important;
+    top: 4px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: #feca57 !important;
+    color: #333 !important;
+    padding: 2px 6px !important;
+    border-radius: 8px !important;
+    font-size: 9px !important;
+    font-weight: bold !important;
+    z-index: 10 !important;
+    white-space: nowrap !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  }
+
+  /* Fix player header spacing */
+  body .main-game .game-area .player .player-header {
+    margin-top: 20px !important;
+    margin-bottom: 8px !important;
+    text-align: center !important;
+  }
+
+  body .main-game .game-area .player .name {
+    font-size: 13px !important;
+    margin: 0 !important;
+    font-weight: 600 !important;
+  }
+
+  body .main-game .game-area .player .player-avatar {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 14px !important;
+  }
+
+  /* Fix score display */
+  body .main-game .game-area .player .score {
+    font-size: 22px !important;
+    margin: 6px 0 !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+  }
+
+  /* Fix current score box - make it more compact and square-like */
+  body .main-game .game-area .player .current {
+    width: 80% !important;
+    padding: 6px !important;
+    margin: 0 auto !important;
+    border-radius: 8px !important;
+    text-align: center !important;
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    color: white !important;
+  }
+
+  body .main-game .game-area .player .current-label {
+    font-size: 9px !important;
+    margin-bottom: 2px !important;
+    opacity: 0.9 !important;
+  }
+
+  body .main-game .game-area .player .current-score {
+    font-size: 14px !important;
+    font-weight: bold !important;
+  }
+
+  /* Fix power-ups */
+  body .main-game .game-area .player .player-powerups {
+    margin-top: 6px !important;
+    text-align: center !important;
+  }
+
+  body .main-game .game-area .player .player-powerups .powerup-item {
+    display: inline-block !important;
+    padding: 4px 6px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    font-size: 9px !important;
+    border-radius: 6px !important;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  }
+
+  /* Fix dice area */
+  body .main-game .game-area .dice-area {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 5 !important;
+    text-align: center !important;
+    pointer-events: none !important;
+  }
+
+  body .main-game .game-area .dice-area .dice {
+    height: 36px !important;
+    margin: 0 auto !important;
+    pointer-events: auto !important;
+  }
+
+  body .main-game .game-area .dice-area .dice-info {
+    padding: 4px !important;
+    font-size: 9px !important;
+    background: white !important;
+    border-radius: 4px !important;
+    margin-top: 4px !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  body .main-game .game-area .dice-area .dice-count,
+  body .main-game .game-area .dice-area .game-mode {
+    font-size: 8px !important;
+    margin: 1px 0 !important;
+    font-weight: 600 !important;
+  }
+}
+
+/* Extra small mobile devices */
+@media screen and (max-width: 480px) {
+  body .main-game .game-controls {
+    padding: 6px 2px !important;
+  }
+
+  body .main-game .game-controls .btn {
+    min-width: 40px !important;
+    max-width: 65px !important;
+    height: 32px !important;
+    padding: 4px 3px !important;
+    font-size: 10px !important;
+    margin: 0 1px !important;
+  }
+
+  body .main-game .game-area .player {
+    flex: 0 0 calc(50% - 2px) !important;
+    margin: 0 1px !important;
+    padding: 4px !important;
+  }
+
+  body .main-game .game-area .player .name {
+    font-size: 11px !important;
+  }
+
+  body .main-game .game-area .player .score {
+    font-size: 18px !important;
+  }
+
+  body .main-game .game-area .player .current {
+    width: 85% !important;
+    padding: 4px !important;
+  }
+
+  body .main-game .game-area .player .current-score {
+    font-size: 12px !important;
+  }
+
+  body .main-game .game-area .player .win-counter {
+    font-size: 8px !important;
+    padding: 1px 4px !important;
+  }
+}
+
+/* Force mobile touch optimizations */
+@media screen and (max-width: 768px) {
+  body .main-game .game-controls .btn {
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1) !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+  }
+
+  body .main-game .game-area .player .player-powerups .powerup-item {
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1) !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+  }
+}
