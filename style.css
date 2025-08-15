@@ -773,114 +773,115 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* Tablet Portrait & Large Mobile */
+  /* Tablet Portrait & Large Mobile - FORCE OVERRIDE */
   .game-modes {
-    padding: 2rem;
-    margin: 0.5rem;
+    padding: 2rem !important;
+    margin: 0.5rem !important;
   }
   
   .game-title {
-    font-size: 3.2rem;
-    margin-bottom: 2rem;
+    font-size: 3.2rem !important;
+    margin-bottom: 2rem !important;
   }
   
   .mode-buttons {
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    gap: 1.5rem !important;
+    margin-bottom: 3rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
   
   .mode-btn {
-    padding: 1.2rem 1.8rem;
-    font-size: 1.6rem;
-    min-height: 44px; /* Ensure touch-friendly size */
-    touch-action: manipulation; /* Optimize for touch */
-    -webkit-tap-highlight-color: rgba(0,0,0,0.1); /* Better touch feedback */
+    padding: 1.2rem 1.8rem !important;
+    font-size: 1.6rem !important;
+    min-height: 44px !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1) !important;
   }
   
   .game-settings {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+    gap: 1.5rem !important;
   }
   
   .setting-group input,
   .setting-group select {
-    padding: 0.8rem;
-    font-size: 1.3rem;
+    padding: 0.8rem !important;
+    font-size: 1.3rem !important;
   }
   
   .main-game {
-    margin: 0.5rem;
-    min-height: 75vh;
+    margin: 0.5rem !important;
+    min-height: 75vh !important;
   }
   
   .game-area {
-    padding: 1rem;
-    position: relative;
+    padding: 1rem !important;
+    position: relative !important;
   }
   
-  /* Compact two-column layout for mobile */
+  /* Compact two-column layout for mobile - FORCE OVERRIDE */
   .player {
-    flex: 0 0 calc(50% - 0.3rem);
-    margin: 0 0.2rem;
-    padding: 0.6rem;
-    min-height: auto;
-    position: relative;
+    flex: 0 0 calc(50% - 0.3rem) !important;
+    margin: 0 0.2rem !important;
+    padding: 0.6rem !important;
+    min-height: auto !important;
+    position: relative !important;
+    overflow: visible !important;
   }
   
   .player-header {
-    margin-bottom: 0.6rem;
-    margin-top: 2rem; /* Increased room for win counter */
+    margin-bottom: 0.6rem !important;
+    margin-top: 2rem !important; /* Increased room for win counter */
   }
   
   .name {
-    font-size: 1.5rem;
-    margin: 0;
-    text-align: center;
+    font-size: 1.5rem !important;
+    margin: 0 !important;
+    text-align: center !important;
   }
   
   .player-avatar {
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.6rem;
+    width: 3rem !important;
+    height: 3rem !important;
+    font-size: 1.6rem !important;
   }
   
   .score {
-    font-size: 2.6rem;
-    margin: 0.6rem 0;
+    font-size: 2.6rem !important;
+    margin: 0.6rem 0 !important;
   }
   
   .current {
-    width: 80%;
-    padding: 0.6rem;
-    border-radius: 8px;
-    margin: 0 auto;
+    width: 80% !important;
+    padding: 0.6rem !important;
+    border-radius: 8px !important;
+    margin: 0 auto !important;
   }
   
   .current-label {
-    font-size: 1rem;
-    margin-bottom: 0.4rem;
+    font-size: 1rem !important;
+    margin-bottom: 0.4rem !important;
   }
   
   .current-score {
-    font-size: 1.8rem;
+    font-size: 1.8rem !important;
   }
   
   .win-counter {
-    position: absolute;
-    top: 0.3rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.8rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 6px;
-    z-index: 10;
-    white-space: nowrap;
-    background: linear-gradient(135deg, #feca57, #fed766);
-    color: #333;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: absolute !important;
+    top: 0.3rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-size: 0.8rem !important;
+    padding: 0.2rem 0.5rem !important;
+    border-radius: 6px !important;
+    z-index: 10 !important;
+    white-space: nowrap !important;
+    background: linear-gradient(135deg, #feca57, #fed766) !important;
+    color: #333 !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
   }
   
   /* Optimized dice area for mobile */
@@ -951,35 +952,41 @@ body {
     justify-content: center;
   }
   
-  /* Bottom-fixed game controls for mobile */
+  /* Bottom-fixed game controls for mobile - FORCE OVERRIDE */
   .game-controls {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 0.8rem 0.5rem;
-    border-top: 2px solid rgba(102, 126, 234, 0.2);
-    z-index: 100;
-    gap: 0.4rem;
-    justify-content: space-evenly;
-    display: flex;
-    flex-wrap: nowrap;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 0.8rem 0.5rem !important;
+    border-top: 2px solid rgba(102, 126, 234, 0.2) !important;
+    z-index: 1000 !important;
+    gap: 0.4rem !important;
+    justify-content: space-evenly !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   
   .btn {
-    padding: 0.6rem 0.8rem;
-    font-size: 1rem;
-    min-width: 60px;
-    max-width: 100px;
-    border-radius: 10px;
-    flex: 1;
-    white-space: nowrap;
-    text-align: center;
+    padding: 0.6rem 0.8rem !important;
+    font-size: 1rem !important;
+    min-width: 60px !important;
+    max-width: 100px !important;
+    border-radius: 10px !important;
+    flex: 1 !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: 44px !important;
   }
   
-  /* Ensure all buttons are visible and properly sized */
+  /* Force all game buttons to be visible */
   .btn--home,
   .btn--new,
   .btn--roll,
@@ -989,6 +996,8 @@ body {
     visibility: visible !important;
     opacity: 1 !important;
     min-height: 44px !important;
+    position: relative !important;
+    z-index: 1001 !important;
   }
   
   /* Stats bar optimization */
@@ -1239,7 +1248,7 @@ body {
     touch-action: manipulation;
   }
   
-  /* Fix game controls visibility and positioning */
+  /* CRITICAL MOBILE FIXES - HIGHEST PRIORITY */
   .game-controls {
     display: flex !important;
     visibility: visible !important;
@@ -1249,32 +1258,56 @@ body {
     left: 0 !important;
     right: 0 !important;
     z-index: 1000 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   
-  /* Ensure all game buttons are visible */
-  .game-controls .btn {
+  /* Force all game buttons to be visible and properly sized */
+  .game-controls .btn,
+  .btn--home,
+  .btn--new,
+  .btn--roll,
+  .btn--hold,
+  .btn--rules {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
     position: relative !important;
+    min-height: 44px !important;
+    min-width: 60px !important;
+    max-width: 100px !important;
+    flex: 1 !important;
   }
   
   /* Fix player layout to prevent overlapping */
   .player {
-    overflow: visible;
-    position: relative;
+    overflow: visible !important;
+    position: relative !important;
   }
   
   /* Ensure win counter doesn't overlap */
   .win-counter {
     position: absolute !important;
-    z-index: 10;
-    white-space: nowrap;
+    z-index: 10 !important;
+    white-space: nowrap !important;
+    top: 0.3rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
   }
   
   /* Fix current score box to be more compact */
   .current {
-    position: relative;
-    z-index: 5;
+    position: relative !important;
+    z-index: 5 !important;
+    width: 80% !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Force button container to show all buttons */
+  .game-controls {
+    padding: 0.8rem 0.5rem !important;
+    gap: 0.4rem !important;
+    justify-content: space-evenly !important;
+    flex-wrap: nowrap !important;
   }
 }
