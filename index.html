@@ -6,33 +6,209 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-    <title>Pig Game</title>
+    <title>Ultimate Dice Roll - Enhanced Edition</title>
   </head>
   <body>
-    <main>
-      <section class="player player--0 player--active">
-        <!-- player enters name -->
-        <h2 class="name" id="name--0">Player 1</h2>
-        <p class="score" id="score--0">43</p>
-        <div class="current">
-          <p class="current-label">Current</p>
-          <p class="current-score" id="current--0">0</p>
+    <!-- Game Modes Selection -->
+    <div id="game-modes" class="game-modes">
+      <h1 class="game-title">🎲 Ultimate Dice Roll 🎲</h1>
+      <div class="mode-buttons">
+        <button class="mode-btn active" data-mode="classic">Play Game</button>
+        <button class="mode-btn" id="settingsToggleBtn">Settings</button>
+      </div>
+      <div class="game-settings hidden">
+        <div class="setting-group">
+          <label for="winScore">Win Score:</label>
+          <input type="number" id="winScore" value="200" min="100" max="1000">
         </div>
-      </section>
-      <section class="player player--1">
-        <h2 class="name" id="name--1">Player 2</h2>
-        <p class="score" id="score--1">24</p>
-        <div class="current">
-          <p class="current-label">Current</p>
-          <p class="current-score" id="current--1">0</p>
+        <div class="setting-group">
+          <label for="diceCount">Dice Count:</label>
+          <select id="diceCount">
+            <option value="1">1 Die</option>
+            <option value="2">2 Dice</option>
+          </select>
         </div>
-      </section>
+        <div class="setting-group">
+          <label for="snakeEyesPenalty">Snake Eyes Penalty:</label>
+          <select id="snakeEyesPenalty">
+            <option value="lose_turn">Lose Turn</option>
+            <option value="lose_score">Lose Score</option>
+            <option value="both">Lose Both</option>
+          </select>
+        </div>
+        <div class="setting-group">
+          <label for="difficulty">Difficulty:</label>
+          <select id="difficulty">
+            <option value="normal" selected>Normal</option>
+            <option value="hard">Hard</option>
+            <option value="difficult">Difficult</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
-      <img src="dice-5.png" alt="Playing dice" class="dice" />
-      <button class="btn btn--new">🔄 New game</button>
-      <button class="btn btn--roll">🎲 Roll dice</button>
-      <button class="btn btn--hold">📥 Hold</button>
+    <!-- Main Game Interface -->
+    <main id="main-game" class="main-game hidden">
+      <!-- Player Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-label">Best Score:</span>
+          <span id="bestScore" class="stat-value">0</span>
+        </div>
+      </div>
+
+      <!-- Game Area -->
+      <div class="game-area">
+        <section class="player player--0 player--active">
+          <div class="win-counter" id="win-counter--0">Wins: 0</div>
+          <div class="player-header">
+            <h2 class="name" id="name--0">Player 1</h2>
+            <div class="player-avatar" id="avatar--0">👤</div>
+          </div>
+          <p class="score" id="score--0">0</p>
+          <div class="current">
+            <p class="current-label">Current</p>
+            <p class="current-score" id="current--0">0</p>
+          </div>
+          <!-- Player 1 Power-ups -->
+          <div class="player-powerups">
+            <div class="powerup-item" id="safeRoll--0" title="Safe Roll - Can't lose current score on 1">
+              <span class="powerup-icon">🛡️</span>
+              <span class="powerup-count">2</span>
+            </div>
+          </div>
+          <div class="player-achievements" id="achievements--0"></div>
+        </section>
+
+        <section class="player player--1">
+          <div class="win-counter" id="win-counter--1">Wins: 0</div>
+          <div class="player-header">
+            <h2 class="name" id="name--1">Player 2</h2>
+            <div class="avatar" id="avatar--1">👤</div>
+          </div>
+          <p class="score" id="score--1">0</p>
+          <div class="current">
+            <p class="current-label">Current</p>
+            <p class="current-score" id="current--1">0</p>
+          </div>
+          <!-- Player 2 Power-ups -->
+          <div class="player-powerups">
+            <div class="powerup-item" id="safeRoll--1" title="Safe Roll - Can't lose current score on 1">
+              <span class="powerup-icon">🛡️</span>
+              <span class="powerup-count">2</span>
+            </div>
+          </div>
+          <div class="player-achievements" id="achievements--1"></div>
+        </section>
+
+        <!-- Dice Area -->
+        <div class="dice-area">
+          <div class="dice-container" id="diceContainer">
+            <img src="dice-1.png" alt="Playing dice" class="dice" id="dice1" />
+          </div>
+          <div class="dice-info">
+            <p class="dice-count">Rolling: <span id="diceCountDisplay">1</span> dice</p>
+            <p class="game-mode">Mode: <span id="currentMode">Classic</span></p>
+          </div>
+        </div>
+
+        <!-- Game Controls -->
+        <div class="game-controls">
+          <button class="btn btn--home">🏠 Home</button>
+          <button class="btn btn--new">🔄 New Game</button>
+          <button class="btn btn--roll">🎲 Roll Dice</button>
+          <button class="btn btn--hold">📥 Hold</button>
+          <button class="btn btn--rules">📖 Rules</button>
+        </div>
+      </div>
     </main>
-    <!-- <script src="script.js"></script> -->
+
+    <!-- Celebration Overlay with Ribbons -->
+    <div id="celebration-overlay" class="celebration-overlay hidden">
+      <div class="celebration-content">
+        <span class="close-celebration" id="close-celebration">&times;</span>
+        <h1 id="winner-text" class="winner-text"></h1>
+        <p class="celebration-subtitle">Click anywhere to close 🎉</p>
+        
+        <!-- Animated Ribbons Container -->
+        <div class="ribbons-container" id="ribbonsContainer"></div>
+        
+        <!-- Confetti Container -->
+        <div class="confetti-container" id="confettiContainer"></div>
+      </div>
+    </div>
+
+    <!-- Rules Modal -->
+    <div id="rules-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>🎲 Game Rules</h2>
+        <div class="rules-content">
+          <h3>Game Rules:</h3>
+          <ul>
+            <li>Roll dice to build your current score</li>
+            <li>Hold to add current score to total</li>
+            <li>Roll a 1 and face penalties based on difficulty setting</li>
+            <li>Risk increases with consecutive rolls (difficulty feature)</li>
+            <li>First to reach target score wins!</li>
+          </ul>
+          
+          <h3>Difficulty Settings:</h3>
+          <ul>
+            <li><strong>Win Score:</strong> Set your target score (100-1000)</li>
+            <li><strong>Dice Count:</strong> Choose 1 or 2 dice</li>
+            <li><strong>Snake Eyes Penalty:</strong> Lose Turn, Lose Score, or Both</li>
+          </ul>
+          
+          <h3>Power-ups:</h3>
+          <ul>
+            <li>🛡️ Safe Roll: Can't lose score on 1 (2 uses per player)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>⚙️ Game Settings</h2>
+        <div class="settings-content">
+          <div class="setting-row">
+            <label for="winScoreSetting">Win Score:</label>
+            <input type="number" id="winScoreSetting" value="100" min="50" max="500">
+          </div>
+          <div class="setting-row">
+            <label for="diceCountSetting">Dice Count:</label>
+            <select id="diceCountSetting">
+              <option value="1">1 Die</option>
+              <option value="2">2 Dice</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Achievement Notification -->
+    <div id="achievement-notification" class="achievement-notification hidden">
+      <div class="achievement-content">
+        <span class="achievement-icon">🏆</span>
+        <div class="achievement-text">
+          <h3 id="achievement-title">Achievement Unlocked!</h3>
+          <p id="achievement-desc">Description here</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="diceRollSound" preload="auto">
+      <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT" type="audio/wav">
+    </audio>
+    <audio id="winSound" preload="auto">
+      <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT" type="audio/wav">
+    </audio>
+    <audio id="holdSound" preload="auto">
+      <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIG2m98OScTgwOUarm7blmGgU7k9n1unEiBC13yO/eizEIHWq+8+OWT" type="audio/wav">
+    </audio>
   </body>
 </html>
